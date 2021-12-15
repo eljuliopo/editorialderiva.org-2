@@ -16,8 +16,8 @@ export default function Menu() {
         </Themed.a>
       </Themed.h2>
       <Themed.h2>
-        <Themed.a as={Link} to="/distribucion">
-          Distribución
+        <Themed.a as={Link} to="/impresos">
+          Impresos
         </Themed.a>
       </Themed.h2>
       <Themed.h2>

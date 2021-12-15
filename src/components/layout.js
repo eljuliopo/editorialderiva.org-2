@@ -31,8 +31,8 @@ const NavLinks = () => (
     <NavLink as={Link} to="/libros">
       CATÁLOGO
     </NavLink>
-    <NavLink as={Link} to="/distribucion">
-      DISTRIBUCIÓN
+    <NavLink as={Link} to="/impresos">
+      IMPRESOS
     </NavLink>
     <NavLink as={Link} to="/contacto">
       CONTACTO
@@ -128,31 +128,33 @@ export default function Layout({ children, seo, pageContext, ...props }) {
           mt: 5,
         }}
       >
-        <Container sx={{ display: "flex", flexDirection: "column" }}>
-          <StaticImage
-            src="../images/deriva-icon.png"
-            width={50}
-            quality={100}
-            formats={["AUTO", "WEBP", "AVIF"]}
-            alt={data.site.siteMetadata.title}
-            sx={{ mx: "auto", filter: "invert(1)" }}
-          />
-          <Themed.p
-            sx={{ textAlign: "center", fontSize: 0, color: "background" }}
-          >
-            © {new Date().getFullYear()}{" "}
-            <Themed.a as={Link} to="/" sx={{ color: "background" }}>
-              Editorial Deriva
-            </Themed.a>
-            <br />
-            Calle Los Artesanos Nro. 199
-            <br />
-            Villa Alegre — Maule
-          </Themed.p>
-          <SocialIcons />
-          {/* <Divider /> */}
-        </Container>
-      </footer>
-    </div>
+      <Container sx={{ display: "flex", flexDirection: "column" }}>
+        <StaticImage
+          src="../images/deriva-icon.png"
+          width={50}
+          quality={100}
+          formats={["AUTO", "WEBP", "AVIF"]}
+          alt={data.site.siteMetadata.title}
+          sx={{ mx: "auto"}}
+        />
+        <Themed.p
+          sx={{ textAlign: "center", fontSize: 0, color: "background" }}
+        >
+          © {new Date().getFullYear()}{" "}
+          <Themed.a as={Link} to="/" sx={{ color: "background" }}>
+            Editorial Deriva
+          </Themed.a>
+          <br />
+          Calle Los Artesanos Nro. 199
+          <br />
+          Villa Alegre, Región del Maule
+          <br / >
+          contacto@editorialderiva.org | +56 9 353 666 87
+        </Themed.p>
+        <SocialIcons />
+        {/* <Divider /> */}
+      </Container>
+    </footer>
+  </div>
   )
 }

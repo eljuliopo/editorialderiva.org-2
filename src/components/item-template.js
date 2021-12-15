@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx, Grid, Box, Themed, Button } from "theme-ui"
+import { jsx, Grid, Box, Themed, Button, Divider } from "theme-ui"
 import { GatsbyImage } from "gatsby-plugin-image"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import { parseAuthors } from "../utils"
@@ -35,15 +35,15 @@ export default function ItemPage({ data, addToCart }) {
           por {parseAuthors(data.authors)}
         </Themed.h5>
         <Themed.h3>${data.price}</Themed.h3>
-        <MDXRenderer>{data.description.childMdx.body}</MDXRenderer>
         <Themed.p>
-          ISBN: {data.isbn} <br />
-          {data.pages} páginas
-          <br />
-          {data.height} x {data.width} cm.
-          <br />
-          {data.year}
+
+        © {data.year} / {data.pages} páginas / {data.height} x {data.width} cm.
+        <br />
+        ISBN: {data.isbn}
+        <Divider />
+
         </Themed.p>
+        <MDXRenderer>{data.description.childMdx.body}</MDXRenderer>
         <div
           sx={{
             display: "flex",

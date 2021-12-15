@@ -41,7 +41,7 @@ const theme = merge(light, {
     body: "Lato",
     heading: "Lato",
   },
-  fontSizes: [14, 16, 18, 22, 24, 28, 32, 40, 48, 56, 64, 72, 80, 96],
+  fontSizes: [12, 13, 14, 16, 18, 22, 24, 28],
   fontWeights: {
     body: 400,
     heading: 700,
@@ -147,6 +147,8 @@ const theme = merge(light, {
       ".Toastify__toast-body": { p: 0 },
       ".Toastify__toast--default": { p: 0 },
       ".slick-slider": { height: "100%" },
+      ".slick-prev:before": { color: "primary" },
+      ".slick-next:before": { color: "primary" },
       ".slick-list": { height: "100%" },
       ".slick-track": { height: "100%", display: "flex" },
       ".slick-slide": {

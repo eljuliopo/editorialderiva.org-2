@@ -1,48 +1,81 @@
 /** @jsx jsx */
-import { jsx, Themed, Grid, Box } from "theme-ui"
-import { graphql, useStaticQuery } from "gatsby"
-import { GatsbyImage, StaticImage } from "gatsby-plugin-image"
+import { jsx, Themed, Grid, Box, Divider } from "theme-ui"
+import { graphql, useStaticQuery, Link } from "gatsby"
+import { GatsbyImage } from "gatsby-plugin-image"
 import Slider from "react-slick"
 import { parseAuthors } from "../utils"
-import otterGIF from "../images/sea2.gif"
+import slugify from "slugify"
+
+
 
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 
-function Cover(props) {
-  return (
-    <div sx={{ m: "auto", textAlign: "center", maxWidth: "blog" }}>
-      <StaticImage
-        src="../images/logo.svg"
-        width={240}
-        quality={100}
-        formats={["AUTO", "WEBP", "AVIF"]}
-        alt={"a"}
-        sx={{ filter: "invert(1)" }}
-      />
-      <Themed.p sx={{ color: "background" }}>{props.description}</Themed.p>
-    </div>
-  )
-}
 
 function Featured({ item, reverse }) {
   return (
     <Grid variant="primary" columns={[1, 2]} sx={{ m: "auto", p: 3 }}>
-      <Box
+
+    <Box
+      sx={{
+        height: "100%",
+        gridRow: [null, 1],
+        gridColumn: [null, reverse ? 1 : 2],
+      }}
+    >
+    <Link to={"/libros/" + slugify(item.title.toLowerCase())}>
+      <GatsbyImage
+        image={item.image.gatsbyImageData}
+        alt={item.title}
+        objectFit="contain"
+        sx={{
+          maxHeight: 380,
+          filter: "drop-shadow(2px 4px 6px black)",
+        }}
+      />
+      </Link>
+    </Box>
+    <Box
         sx={{
           display: "flex",
+          color: "primary",
           flexDirection: "column",
           justifyContent: "space-between",
           gridRow: [null, 1],
           gridColumn: [null, reverse ? 2 : 1],
         }}
       >
+
+        <div sx={{ my: 3 }}>
+          <Link to={"/libros/" + slugify(item.title.toLowerCase())}>
+          <Themed.h2
+            sx={{
+              my: 3,
+              textAlign: reverse ? "left" : "right"
+            }}
+          >
+            {item.title}
+          </Themed.h2>
+          </Link>
+          <Themed.p
+            sx={{
+              my: 3,
+              textAlign: reverse ? "left" : "right",
+            }}
+          >
+            {parseAuthors(item.authors)}
+            <br/>
+            {item.year} / {item.pages} págs.
+          </Themed.p>
+        </div>
+        <Themed.p sx={{ my: 0, color: "primary", textAlign: "right" }}>
+
+        </Themed.p>
         <Themed.p
           sx={{
             my: 0,
-            color: "background",
             px: 3,
-            border: theme => `solid 1px ${theme.colors.background}`,
+            border: theme => `solid 3px ${theme.colors.black}`,
             borderStyle: reverse
               ? "none solid none none"
               : "none none none solid",
@@ -53,84 +86,41 @@ function Featured({ item, reverse }) {
           <br />
           {item.categories[0]}
         </Themed.p>
-        <div sx={{ my: 3 }}>
-          <Themed.h1
-            sx={{
-              my: 0,
-              color: "background",
-              textAlign: reverse ? "left" : "right",
-            }}
-          >
-            {item.title}
-          </Themed.h1>
-          <Themed.p
-            sx={{
-              my: 0,
-              color: "background",
-              textAlign: reverse ? "left" : "right",
-            }}
-          >
-            {parseAuthors(item.authors)}
-          </Themed.p>
-        </div>
-        <Themed.p sx={{ my: 0, color: "background", textAlign: "right" }}>
-          {/* {item.year} */}{" "}
-        </Themed.p>
+
       </Box>
-      <Box
-        sx={{
-          height: "100%",
-          gridRow: [null, 1],
-          gridColumn: [null, reverse ? 1 : 2],
-        }}
-      >
-        <GatsbyImage
-          image={item.image.gatsbyImageData}
-          alt={item.title}
-          objectFit="contain"
-          sx={{
-            maxHeight: 480,
-            filter: "drop-shadow(2px 4px 6px black)",
-          }}
-        />
-      </Box>
+
     </Grid>
   )
 }
 
 export default function Carousel() {
-  const { site, allContentfulLibro } = useStaticQuery(query)
+  const { allContentfulLibro } = useStaticQuery(query)
   return (
-    <div sx={{ position: "relative", bg: "secondary", p: 3 }}>
-      <img
-        src={otterGIF}
-        alt="Olas"
+    <div sx={{ position: "relative", bg: "background", p: 4 }}>
+
+      <div id="ultimos" sx={{ height: "100%", py: 3 }}>
+        <Themed.h1
         sx={{
-          position: "absolute",
-          width: "100%",
-          height: "100%",
-          objectFit: "cover",
-          top: 0,
-          left: 0,
-          // filter: "contrast(0.5) invert(1)",
-          // mixBlendMode: "multiply",
+          textAlign: "center",
         }}
-      />
-      <div sx={{ height: "100%", py: 4 }}>
+        >
+          Últimos libros
+        </Themed.h1>
+        <Divider />
         <Slider
           autoplay
-          autoplaySpeed={3200}
-          dots={false}
-          arrows={false}
+          autoplaySpeed={13200}
+          dots={true}
+          arrows={true}
           infinite={true}
-          speed={600}
+          speed={2000}
           slidesToShow={1}
           slidesToScroll={1}
           sx={{ height: "100%" }}
         >
-          <Cover {...site.siteMetadata} />
           <Featured item={allContentfulLibro.nodes[0]} />
-          <Featured item={allContentfulLibro.nodes[1]} reverse />
+          <Featured item={allContentfulLibro.nodes[1]} />
+          <Featured item={allContentfulLibro.nodes[2]} reverse />
         </Slider>
       </div>
     </div>
@@ -139,19 +129,19 @@ export default function Carousel() {
 
 const query = graphql`
   query CarouselQuery {
-    site {
-      siteMetadata {
-        title
-        description
-      }
-    }
-    allContentfulLibro(limit: 2, sort: { order: DESC, fields: createdAt }) {
+    allContentfulLibro(limit: 3, sort: { order: DESC, fields: createdAt }) {
       nodes {
         contentful_id
         id
         title
         authors
+        description {
+          childMdx {
+            body
+          }
+        }
         price
+        pages
         image {
           gatsbyImageData(width: 480)
         }

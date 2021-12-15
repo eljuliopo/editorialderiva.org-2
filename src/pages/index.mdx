@@ -3,36 +3,27 @@ title: Home
 ---
 
 import { graphql } from "gatsby"
-import { Grid, Box } from "theme-ui"
+import { Grid, Box, Divider } from "theme-ui"
 import Item from "../components/item-small"
 import { PostListA1 } from "../components/postlist"
 import Carousel from "../components/carousel"
+import Indexcover from "../components/indexcover"
 
+
+<Indexcover />
+<Box sx={{ maxWidth: "blog", mx: "auto", textAlign: "center", mt: 5 }}>
+
+
+</Box>
 
 <Carousel />
 
 <Box sx={{ maxWidth: "blog", mx: "auto", textAlign: "center", mt: 5 }}>
 
-# [Últimos libros](/libros)
+# [Novedades](/blog)
 
-Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem [sequi nesciunt](/libros).
-
-</Box>
-<Box sx={{ maxWidth: "blog", mx: "auto", px: 1,pt:4 }}>
-
-<Grid columns={[1, 3]} variant="primary" sx={{ mb: 4 }}>
-  {props.data.allContentfulLibro.nodes.slice(2).map(node => (
-    <Item key={node.id} data={node} />
-  ))}
-</Grid>
-</Box>
-
-<Box sx={{ maxWidth: "blog", mx: "auto", textAlign: "center", mt: 5 }}>
-
-# [Blog](/blog)
-
-Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem [sequi nesciunt](/blog).
-
+Puedes revisar todas las novedades [acá ](/blog)
+<Divider />
 </Box>
 
 <PostListA1 posts={props.data.allContentfulBlogPost.nodes} />
@@ -49,7 +40,13 @@ export const pageQuery = graphql`
         id
         title
         authors
+        description {
+          childMdx {
+            body
+          }
+        }
         price
+        pages
         image {
           gatsbyImageData(width: 480)
         }

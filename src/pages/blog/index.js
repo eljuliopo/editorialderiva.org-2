@@ -9,8 +9,8 @@ export default function Blog(props) {
   return (
     <React.Fragment>
       <Box sx={{ maxWidth: "blog", mx: "auto", px: 3 }}>
-        <Themed.h1>Blog</Themed.h1>
-        <Themed.p>a</Themed.p>
+        <Themed.h2>Novedades</Themed.h2>
+        <Themed.p></Themed.p>
       </Box>
       <PostListA1 posts={posts} />
     </React.Fragment>

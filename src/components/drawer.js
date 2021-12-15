@@ -6,10 +6,10 @@ import { StaticImage } from "gatsby-plugin-image"
 import { useStore } from "../store/state"
 
 export const items = [
-  { title: "Editorial", path: "/editorial" },
-  { title: "Catálogo", path: "/libros" },
-  { title: "Distribución", path: "/distribucion" },
-  { title: "Contacto", path: "/contacto" },
+  { title: "EDITORIAL", path: "/editorial" },
+  { title: "CATÁLOGO", path: "/libros" },
+  { title: "IMPRESOS", path: "/impresos" },
+  { title: "CONTACTO", path: "/contacto" },
 ]
 
 export default function DrawerMenu() {
@@ -38,14 +38,11 @@ export default function DrawerMenu() {
         >
           <Themed.a as={Link} to="/">
             <StaticImage
-              src="../images/logo.svg"
-              width={120}
+              src="../images/deriva-icon.png"
+              width={60}
               quality={100}
               formats={["AUTO", "WEBP", "AVIF"]}
               alt={"a"}
-              sx={{
-                filter: "invert(1)",
-              }}
             />
           </Themed.a>
           <div sx={{ display: "flex", alignItems: "center" }}></div>
@@ -59,18 +56,6 @@ export default function DrawerMenu() {
       <div sx={{ height: "100%" }}>
         <Container sx={{ textAlign: "right" }}>
           <Themed.p>
-            <Themed.a
-              as={Link}
-              to={"/"}
-              onClick={toggleMenu}
-              sx={{
-                display: "inline-block",
-                color: "background",
-                px: 2,
-              }}
-            >
-              Inicio
-            </Themed.a>
           </Themed.p>
           {items.map((item, idx) => (
             <Themed.p key={idx}>
