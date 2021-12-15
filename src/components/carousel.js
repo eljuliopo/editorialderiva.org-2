@@ -92,7 +92,7 @@ function Featured({ item, reverse }) {
 export default function Carousel() {
   const { allContentfulLibro } = useStaticQuery(query)
   return (
-    <div sx={{ position: "relative", bg: "background", p: 4 }}>
+    <div sx={{ position: "relative", bg: "background", p: 4,  border: "2px solid black" }}>
 
       <div id="ultimos" sx={{ height: "100%", py: 3 }}>
         <Themed.h1
