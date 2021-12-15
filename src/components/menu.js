@@ -21,6 +21,11 @@ export default function Menu() {
         </Themed.a>
       </Themed.h2>
       <Themed.h2>
+        <Themed.a as={Link} to="/blog">
+          Novedades
+        </Themed.a>
+      </Themed.h2>
+      <Themed.h2>
         <Themed.a as={Link} to="/contacto">
           Contacto
         </Themed.a>

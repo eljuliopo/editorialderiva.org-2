@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx, Themed, Grid, Box, Divider } from "theme-ui"
+import { jsx, Themed, Grid, Box, Divider, Button } from "theme-ui"
 import { graphql, useStaticQuery, Link } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 import Slider from "react-slick"
@@ -47,7 +47,6 @@ function Featured({ item, reverse }) {
       >
 
         <div sx={{ my: 3 }}>
-          <Link to={"/libros/" + slugify(item.title.toLowerCase())}>
           <Themed.h2
             sx={{
               my: 3,
@@ -56,7 +55,6 @@ function Featured({ item, reverse }) {
           >
             {item.title}
           </Themed.h2>
-          </Link>
           <Themed.p
             sx={{
               my: 3,
@@ -86,9 +84,7 @@ function Featured({ item, reverse }) {
           <br />
           {item.categories[0]}
         </Themed.p>
-
       </Box>
-
     </Grid>
   )
 }
@@ -113,7 +109,7 @@ export default function Carousel() {
           dots={true}
           arrows={true}
           infinite={true}
-          speed={2000}
+          speed={1000}
           slidesToShow={1}
           slidesToScroll={1}
           sx={{ height: "100%" }}
@@ -122,6 +118,18 @@ export default function Carousel() {
           <Featured item={allContentfulLibro.nodes[1]} />
           <Featured item={allContentfulLibro.nodes[2]} reverse />
         </Slider>
+      </div>
+      <div sx={{ textAlign: 'center', mt: 5 }}>
+        <Link to="/libros">
+          <Button
+          sx={{
+              fontWeight: 'bold',
+              textTransform: 'uppercase'
+          }}
+          >
+            revisa nuestro catálogo
+          </Button>
+        </Link>
       </div>
     </div>
   )

@@ -129,14 +129,16 @@ export default function Layout({ children, seo, pageContext, ...props }) {
         }}
       >
       <Container sx={{ display: "flex", flexDirection: "column" }}>
-        <StaticImage
-          src="../images/deriva-icon.png"
-          width={50}
-          quality={100}
-          formats={["AUTO", "WEBP", "AVIF"]}
-          alt={data.site.siteMetadata.title}
-          sx={{ mx: "auto"}}
-        />
+        <Link to='/' sx={{ textAlign: 'center'}}>
+          <StaticImage
+            src="../images/deriva-icon.png"
+            width={50}
+            quality={100}
+            formats={["AUTO", "WEBP", "AVIF"]}
+            alt={data.site.siteMetadata.title}
+            sx={{ mx: "auto"}}
+          />
+        </Link>
         <Themed.p
           sx={{ textAlign: "center", fontSize: 0, color: "background" }}
         >

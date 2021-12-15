@@ -9,6 +9,7 @@ export const items = [
   { title: "EDITORIAL", path: "/editorial" },
   { title: "CATÁLOGO", path: "/libros" },
   { title: "IMPRESOS", path: "/impresos" },
+  { title: "NOVEDADES", path: "/blog" },
   { title: "CONTACTO", path: "/contacto" },
 ]
 
