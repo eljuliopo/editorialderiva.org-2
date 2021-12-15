@@ -45,7 +45,7 @@ function Angle(props) {
 export default function Indexcover() {
   const { site } = useStaticQuery(query)
   return (
-    <div sx={{ position: "cover", bg: "background", p: 4 }}>
+    <div id="index" sx={{ position: "cover", bg: "background", p: 4 }}>
       <img
         src={otterGIF}
         alt="Olas"

@@ -4,6 +4,7 @@ import React from "react"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import Headroom from "react-headroom"
+import { AnchorLink } from "gatsby-plugin-anchor-links"
 import SocialIcons from "../components/social-icons"
 
 import Seo from "./seo"
@@ -129,7 +130,7 @@ export default function Layout({ children, seo, pageContext, ...props }) {
         }}
       >
       <Container sx={{ display: "flex", flexDirection: "column" }}>
-        <Link to='/' sx={{ textAlign: 'center'}}>
+        <AnchorLink to="/#index" sx={{ textAlign: 'center'}}>
           <StaticImage
             src="../images/deriva-icon.png"
             width={50}
@@ -138,7 +139,7 @@ export default function Layout({ children, seo, pageContext, ...props }) {
             alt={data.site.siteMetadata.title}
             sx={{ mx: "auto"}}
           />
-        </Link>
+        </AnchorLink>
         <Themed.p
           sx={{ textAlign: "center", fontSize: 0, color: "background" }}
         >

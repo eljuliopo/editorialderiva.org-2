@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx, Themed, Container, MenuButton } from "theme-ui"
+import { jsx, Themed, Container, Close } from "theme-ui"
 import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 
@@ -49,7 +49,7 @@ export default function DrawerMenu() {
             />
           </Themed.a>
           <div sx={{ display: "flex", alignItems: "center" }}></div>
-          <MenuButton
+          <Close
             sx={{ display: ["inherit", "none"], ml: 3, color: "background" }}
             aria-label="Toggle Menu"
             onClick={toggleMenu}

@@ -36,12 +36,10 @@ export default function ItemPage({ data, addToCart }) {
         </Themed.h5>
         <Themed.h3>${data.price}</Themed.h3>
         <Themed.p>
-
-        © {data.year} / {data.pages} páginas / {data.height} x {data.width} cm.
-        <br />
-        ISBN: {data.isbn}
-        <Divider />
-
+          © {data.year} / {data.pages} páginas / {data.height} x {data.width} cm.
+          <br />
+          ISBN: {data.isbn}
+          <Divider />
         </Themed.p>
         <MDXRenderer>{data.description.childMdx.body}</MDXRenderer>
         <div

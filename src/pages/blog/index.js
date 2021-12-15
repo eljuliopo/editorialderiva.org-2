@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx, Themed, Box } from "theme-ui"
+import { jsx, Themed, Box, Divider } from "theme-ui"
 import { graphql } from "gatsby"
 import { PostListA1 } from "../../components/postlist"
 import React from "react"
@@ -9,8 +9,8 @@ export default function Blog(props) {
   return (
     <React.Fragment>
       <Box sx={{ maxWidth: "blog", mx: "auto", px: 3 }}>
-        <Themed.h2>BLOG</Themed.h2>
-        <Themed.p></Themed.p>
+        <Themed.h1>BLOG</Themed.h1>
+        <Divider />
       </Box>
       <PostListA1 posts={posts} />
     </React.Fragment>

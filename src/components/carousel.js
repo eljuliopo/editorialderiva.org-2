@@ -137,7 +137,7 @@ export default function Carousel() {
 
 const query = graphql`
   query CarouselQuery {
-    allContentfulLibro(limit: 3, sort: { order: DESC, fields: createdAt }) {
+    allContentfulLibro(limit: 3, sort: { order: DESC, fields: updatedAt }) {
       nodes {
         contentful_id
         id
