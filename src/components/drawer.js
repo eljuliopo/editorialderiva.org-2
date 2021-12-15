@@ -9,7 +9,7 @@ export const items = [
   { title: "EDITORIAL", path: "/editorial" },
   { title: "CATÁLOGO", path: "/libros" },
   { title: "IMPRESOS", path: "/impresos" },
-  { title: "NOVEDADES", path: "/blog" },
+  { title: "BLOG", path: "/blog" },
   { title: "CONTACTO", path: "/contacto" },
 ]
 
@@ -40,6 +40,8 @@ export default function DrawerMenu() {
           <Themed.a as={Link} to="/">
             <StaticImage
               src="../images/deriva-icon.png"
+              aria-label="Toggle Menu"
+              onClick={toggleMenu}
               width={60}
               quality={100}
               formats={["AUTO", "WEBP", "AVIF"]}

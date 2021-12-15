@@ -9,6 +9,7 @@ module.exports = {
   plugins: [
     `gatsby-plugin-mdx`,
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-anchor-links`,
     `gatsby-plugin-image`,
     {
       resolve: `gatsby-source-filesystem`,

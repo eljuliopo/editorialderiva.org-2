@@ -1,7 +1,8 @@
 /** @jsx jsx */
 import { jsx, Themed } from "theme-ui"
-import { graphql, useStaticQuery, Link } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
+import { AnchorLink } from "gatsby-plugin-anchor-links"
 import otterGIF from "../images/sea2.gif"
 
 import "slick-carousel/slick/slick.css"
@@ -26,7 +27,7 @@ function Cover(props) {
 function Angle(props) {
   return (
     <div sx={{ m: "auto", textAlign: "center", maxWidth: "blog" }}>
-      <Link to="#ultimos" scrollBehavior="smooth" >
+      <AnchorLink to="/#ultimos">
         <StaticImage
           src="../images/angle-down.png"
           width={30}
@@ -35,7 +36,7 @@ function Angle(props) {
           alt={"a"}
           sx={{ mt: "5"}}
         />
-      </Link>
+      </AnchorLink>
     </div>
   )
 }

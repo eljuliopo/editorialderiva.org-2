@@ -22,7 +22,7 @@ export default function Menu() {
       </Themed.h2>
       <Themed.h2>
         <Themed.a as={Link} to="/blog">
-          Novedades
+          Blog
         </Themed.a>
       </Themed.h2>
       <Themed.h2>
