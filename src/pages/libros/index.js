@@ -8,7 +8,7 @@ export default function CatalogPage({ data }) {
   const items = data.allContentfulLibro.nodes
   return (
     <Box sx={{ maxWidth: "blog", mx: "auto" }}>
-      <Themed.h2>Nuestro catálogo</Themed.h2>
+      <Themed.h2>CATÁLOGO</Themed.h2>
       <Grid variant="primary" columns={[1, 3]}>
         {items.map(item => (
           <Item key={item.contentful_id} data={item} />
